@@ -113,29 +113,29 @@
 
   @media(max-width:768px){
     /* NAV */
-    nav{padding:.9rem 1.2rem}
-    .logo{font-size:1.1rem;letter-spacing:.1em}
+    nav{padding:.7rem 1rem;gap:.6rem;flex-wrap:nowrap}
+    .logo img{height:28px !important}
     .nav-links{display:none}
-    .btn-reserve{font-size:.7rem;padding:.45rem 1rem;letter-spacing:.08em}
-
+    .btn-reserve{font-size:.65rem;padding:.4rem .7rem;letter-spacing:.05em;white-space:nowrap;min-width:auto}
+    nav a[aria-label="Instagram"] svg{width:22px;height:22px}
     /* HERO */
     .hero{grid-template-columns:1fr;min-height:auto}
-    .hero-left{padding:3rem 1.5rem 2.5rem;border-right:none;border-bottom:1px solid var(--border)}
-    .hero-tag{font-size:.6rem;margin-bottom:1.2rem}
-    .hero-title{font-size:2.2rem;margin-bottom:1rem}
-    .hero-title span{font-size:.85rem;letter-spacing:.25em}
+    .hero-left{padding:2.5rem 1.5rem 2.5rem;border-right:none;border-bottom:1px solid var(--border)}
+    .hero-tag{font-size:.6rem;margin-bottom:1.2rem;letter-spacing:.2em}
+    .hero-title{font-size:2rem;margin-bottom:1rem}
+    .hero-title span{font-size:.8rem;letter-spacing:.2em}
     .hero-lead{font-size:.78rem;line-height:2;margin-bottom:2rem}
     .hero-actions{flex-direction:column;align-items:stretch;gap:.8rem}
-    .btn-primary,.btn-sec{text-align:center;padding:.85rem 1.5rem;font-size:.78rem}
-    .hero-right{min-height:220px}
+    .btn-primary,.btn-sec{text-align:center;padding:.9rem 1.5rem;font-size:.78rem}
+    .hero-right{min-height:200px}
 
     /* DIVIDER */
-    .divider{padding:2rem 1.5rem}
+    .divider{padding:1.8rem 1.5rem}
 
     /* CONCEPT */
-    #concept{min-height:320px !important}
+    #concept{min-height:300px !important}
     #concept > div:last-child{padding:2rem 1.5rem !important}
-    #concept h2{font-size:1.6rem !important;margin-bottom:1.2rem !important}
+    #concept h2{font-size:1.5rem !important;margin-bottom:1rem !important}
     #concept p{font-size:.78rem !important}
 
     /* WINE */
@@ -144,16 +144,18 @@
     .wine-card{padding:1.5rem}
     .wine-info h3{font-size:.9rem}
     .wine-info p{font-size:.72rem}
-    .section-header h2{font-size:1.6rem}
+    .section-header{margin-bottom:2rem}
+    .section-header h2{font-size:1.5rem}
+    .section-header .label{font-size:.6rem}
 
     /* INFO */
-    .info-section{grid-template-columns:1fr;gap:2.5rem;padding:2.5rem 1.5rem;border-bottom:1px solid var(--border)}
+    .info-section{grid-template-columns:1fr;gap:2.5rem;padding:2.5rem 1.5rem}
     .info-block h2{font-size:1.4rem;margin-bottom:1.2rem}
-    .info-table td{font-size:.75rem;padding:.75rem 0}
+    .info-table td{font-size:.74rem;padding:.7rem 0}
 
     /* CTA */
     .cta-section{grid-template-columns:1fr;gap:2rem;padding:3rem 1.5rem}
-    .cta-text h2{font-size:1.6rem;margin-bottom:1rem}
+    .cta-text h2{font-size:1.5rem;margin-bottom:1rem}
     .cta-text p{font-size:.78rem}
 
     /* FOOTER */
@@ -343,3 +345,4 @@
 
 </body>
 </html>
+
