@@ -3,240 +3,263 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>居酒屋 るぷらんどる</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Zen+Old+Mincho:wght@400;700&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+<title>居酒屋バルるぷらんどる — reprendre</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Shippori+Mincho:wght@400;600&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --wa-black: #1c1108;
-    --wa-brown: #5c3d1e;
-    --wa-tan: #c4935a;
-    --wa-cream: #f5ede0;
-    --wa-paper: #faf6ef;
-    --wa-accent: #a0522d;
-    --wa-muted: #8a7060;
-    --wa-border: rgba(92,61,30,0.2);
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{\r
+    --ink:#1a1410;--brown:#4a2e1a;--wine:#6b2737;--gold:#b8924a;\r
+    --cream:#f7f2ea;--paper:#faf8f4;--muted:#7a6a5a;--border:rgba(74,46,26,0.15)\r
   }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  
-  body {
-    background: var(--wa-paper);
-    color: var(--wa-black);
-    font-family: 'Noto Serif JP', serif;
-    line-height: 1.8;
-  }
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:'Noto Serif JP',serif;line-height:1.8}
 
   /* ==========================================
-     NAV NAVIGATION (PC & ベーススタイル)
+     NAV (ナビゲーション・ヘッダー)
      ========================================== */
-  nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 3rem;
-    background: rgba(250,246,239,0.92);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--wa-border);
+  nav{
+    position:sticky;
+    top:0;
+    z-index:100;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:1.2rem 4rem;
+    background:rgba(250,248,244,0.95);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);
+  }
+  .logo{
+    font-family:'Shippori Mincho',serif;
+    font-size:1.4rem;
+    font-weight:600;
+    letter-spacing:.15em;
+    color:var(--brown);
+    text-decoration:none
+  }
+  .logo span{
+    font-size:.75rem;
+    font-weight:400;
+    color:var(--gold);
+    margin-left:.6rem;
+    letter-spacing:.05em
   }
 
-  .nav-logo {
-    font-family: 'Zen Old Mincho', serif;
-    font-size: 1.5rem;
-    color: var(--wa-brown);
-    letter-spacing: 0.2em;
-    text-decoration: none;
-  }
-  .nav-logo span { color: var(--wa-tan); }
+  /* チェックボックス & ハンバーガーアイコン (PCでは非表示) */
+  #nav-toggle{display:none}
+  .nav-toggle-label{display:none}
 
-  /* PC用メニューリンク */
-  .nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-    align-items: center;
+  /* メニューリンク (PC表示時) */
+  .nav-links{
+    display:flex;
+    gap:3rem;
+    list-style:none;
+    align-items:center
   }
-
-  .nav-links a {
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 300;
-    letter-spacing: 0.15em;
-    color: var(--wa-muted);
-    text-decoration: none;
-    transition: color 0.3s;
+  .nav-links a{
+    font-family:'Noto Sans JP',sans-serif;
+    font-size:.82rem;
+    font-weight:400;
+    color:var(--muted);
+    text-decoration:none;
+    letter-spacing:.1em;
+    transition:color .3s
   }
-  .nav-links a:hover { color: var(--wa-brown); }
+  .nav-links a:hover{color:var(--wine)}
 
-  /* ハンバーガーメニュー内専用の予約項目（PCでは非表示） */
+  /* スマホ専用の予約項目 (PC表示時は完全に非表示) */
   .nav-links .sp-reserve-item {
     display: none;
-  }
-
-  /* PC用ヘッダー内 予約ボタン */
-  .nav-reserve {
-    display: block;
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 400;
-    letter-spacing: 0.1em;
-    padding: 0.5rem 1.4rem;
-    border: 1px solid var(--wa-tan);
-    color: var(--wa-brown);
-    background: transparent;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.3s;
-  }
-  .nav-reserve:hover {
-    background: var(--wa-tan);
-    color: white;
-  }
-
-  /* トグル用チェックボックス（常に非表示） */
-  #nav-toggle {
-    display: none;
-  }
-
-  /* ハンバーガーアイコン（PCでは非表示） */
-  .nav-toggle-label {
-    display: none;
-    cursor: pointer;
-    padding: 0.5rem;
-    z-index: 110;
   }
 
   /* ==========================================
      RESPONSIVE (スマートフォン用スタイル: 768px以下)
      ========================================== */
-  @media (max-width: 768px) {
-    nav {
-      padding: 1rem 1.5rem;
+  @media(max-width:768px){
+    nav{padding:1rem 2rem}
+    
+    /* ハンバーガーアイコンの表示 */
+    .nav-toggle-label{
+      display:block;
+      position:relative;
+      width:26px;
+      height:16px;
+      cursor:pointer;
+      z-index:110
     }
-
-    /* PC用の独立した予約ボタンを非表示に */
-    .nav-reserve {
-      display: none;
-    }
-
-    /* ハンバーガー三本線アイコンの表示 */
-    .nav-toggle-label {
-      display: block;
-      position: relative;
-      width: 30px;
-      height: 20px;
-    }
-
     .nav-toggle-label span,
     .nav-toggle-label span:before,
-    .nav-toggle-label span:after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 1.5px;
-      background: var(--wa-brown);
-      transition: all 0.3s ease-in-out;
+    .nav-toggle-label span:after{
+      content:'';
+      position:absolute;
+      width:100%;
+      height:1.2px;
+      background:var(--brown);
+      transition:all .3s ease-in-out
     }
+    .nav-toggle-label span{top:7.4px}
+    .nav-toggle-label span:before{top:-7.4px}
+    .nav-toggle-label span:after{top:7.4px}
 
-    .nav-toggle-label span { top: 9px; }
-    .nav-toggle-label span:before { top: -9px; }
-    .nav-toggle-label span:after { top: 9px; }
-
-    /* スマホ用ドロワーメニューの展開 */
-    .nav-links {
-      position: fixed;
-      top: 0;
-      left: 100%; /* 初期状態は画面外右側 */
-      width: 100%;
-      height: 100vh;
-      background: rgba(250, 246, 239, 0.98);
-      flex-direction: column;
-      justify-content: center;
-      gap: 2.5rem;
-      transition: left 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-      z-index: 105;
+    /* スマホ用ドロワーメニュー */
+    .nav-links{
+      position:fixed;
+      top:0;
+      left:100%;
+      width:100%;
+      height:100vh;
+      background:rgba(250,248,244,0.98);
+      flex-direction:column;
+      justify-content:center;
+      gap:2.5rem;
+      transition:left .4s cubic-bezier(0.25,1,0.5,1);
+      z-index:105;
+      padding:2rem
     }
-
-    .nav-links a {
-      font-size: 1.1rem;
-      letter-spacing: 0.2em;
+    .nav-links a{
+      font-family:'Shippori Mincho',serif;
+      font-size:1.15rem;
+      color:var(--brown);
+      letter-spacing:.15em
     }
-
-    /* ハンバーガーメニュー内でのみ予約項目を表示 */
+    
+    /* ハンバーガーメニュー内のみ予約項目を有効化 */
     .nav-links .sp-reserve-item {
       display: block;
-      margin-top: 1rem;
+      margin-top: 1.5rem;
+      text-align: center;
     }
-
-    /* メニュー内予約ボタンの上品な和モダン装飾 */
     .nav-links .sp-reserve-button {
-      border: 1px solid var(--wa-tan);
-      padding: 0.7rem 2.5rem;
-      color: var(--wa-brown);
-      background: transparent;
-      font-weight: 400;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: .85rem;
+      letter-spacing: .2em;
+      padding: 1rem 3rem;
+      background: var(--gold);
+      color: #1e1210;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: .8rem;
+      transition: all 0.3s;
+    }
+    .nav-links .sp-reserve-button:hover {
+      background: var(--wine);
+      color: var(--cream);
+    }
+    .nav-links .sp-reserve-note {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: .65rem;
+      font-weight: 300;
+      color: var(--muted);
+      letter-spacing: .05em;
+      margin-top: 0.5rem;
     }
 
-    /* チェックボックスが入った（開いた）時のアニメーション */
-    #nav-toggle:checked ~ .nav-links {
-      left: 0; /* 画面内に滑り込む */
-    }
-
-    /* 三本線から✕印への変形 */
-    #nav-toggle:checked ~ .nav-toggle-label span {
-      background: transparent;
-    }
-    #nav-toggle:checked ~ .nav-toggle-label span:before {
-      transform: rotate(45deg);
-      top: 0;
-    }
-    #nav-toggle:checked ~ .nav-toggle-label span:after {
-      transform: rotate(-45deg);
-      top: 0;
-    }
+    /* メニュー開閉時のアニメーション */
+    #nav-toggle:checked ~ .nav-links{left:0}
+    #nav-toggle:checked ~ .nav-toggle-label span{background:transparent}
+    #nav-toggle:checked ~ .nav-toggle-label span:before{transform:rotate(45deg);top:0}
+    #nav-toggle:checked ~ .nav-toggle-label span:after{transform:rotate(-45deg);top:0}
   }
 
-  /* 表示確認用の暫定コンテンツエリア */
-  .content-mock {
-    padding: 5rem 2rem;
-    text-align: center;
-    min-height: 80vh;
+  /* HERO */
+  .hero{position:relative;height:100vh;background:#2a1d15;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;background-size:cover;background-position:center;opacity:.4;filter:grayscale(20%)}
+  .hero-content{position:relative;z-index:10;text-align:center;color:var(--cream);padding:0 1.5rem}
+  .hero-logo{font-family:'Shippori Mincho',serif;font-size:3.2rem;font-weight:600;letter-spacing:.3em;color:var(--cream);margin-bottom:1.5rem;margin-right:-.3em}
+  .hero-sub{font-family:'Shippori Mincho',serif;font-size:1.1rem;font-weight:400;letter-spacing:.4em;color:var(--gold);margin-bottom:3.5rem;margin-right:-.4em}
+  .hero-lead{font-size:.95rem;font-weight:300;letter-spacing:.18em;line-height:2.2;color:rgba(247,242,234,.85)}
+
+  @media(max-width:768px){
+    .hero-logo{font-size:2.4rem}
+    .hero-sub{font-size:.9rem;margin-bottom:2.5rem}
+    .hero-lead{font-size:.85rem;line-height:2}
   }
+
+  /* CONCEPT */
+  .concept{padding:8rem 2rem;max-width:800px;margin:0 auto;text-align:center}
+  .section-title{font-family:'Shippori Mincho',serif;font-size:1.8rem;font-weight:600;letter-spacing:.25em;color:var(--brown);margin-bottom:4rem;position:relative;padding-bottom:1.2rem}
+  .section-title:after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:30px;height:1px;background:var(--gold)}
+  .concept-text{font-size:.92rem;font-weight:300;letter-spacing:.15em;line-height:2.4;color:var(--ink)}
+
+  /* RESERVATION SECTION */
+  .reserve-section{background:var(--ink);color:var(--cream);padding:7rem 2rem;text-align:center}
+  .reserve-title{font-family:'Shippori Mincho',serif;font-size:1.6rem;font-weight:600;letter-spacing:.2em;color:var(--gold);margin-bottom:1.5rem}
+  .reserve-text{font-size:.88rem;font-weight:300;color:rgba(247,242,234,.7);letter-spacing:.12em;line-height:2;margin-bottom:3rem}
+
+  /* FOOTER */
+  footer{background:#110d0a;padding:4rem 2rem;text-align:center;border-top:1px solid rgba(74,46,26,0.1)}
+  .foot-logo{font-family:'Shippori Mincho',serif;font-size:1.2rem;letter-spacing:.2em;color:rgba(247,242,234,.6);margin-bottom:1.5rem}
+  .copyright{font-family:'Noto Sans JP',sans-serif;font-size:.7rem;font-weight:300;color:rgba(247,242,234,.25);letter-spacing:.05em}
 </style>
 </head>
 <body>
 
 <header>
   <nav>
-    <a href="#" class="nav-logo">るぷらんどる<span>.</span></a>
-
+    <a href="#" class="logo">るぷらんどる<span>reprendre</span></a>
+    
     <input type="checkbox" id="nav-toggle">
-
     <label for="nav-toggle" class="nav-toggle-label">
       <span></span>
     </label>
 
     <ul class="nav-links">
-      <li><a href="#concept">コンセプト</a></li>
+      <li><a href="#concept">こだわり</a></li>
       <li><a href="#menu">お品書き</a></li>
-      <li><a href="#access">アクセス</a></li>
+      <li><a href="#access">店舗情報</a></li>
       <li class="sp-reserve-item">
-        <a href="#reservation" class="sp-reserve-button">ご予約はこちら</a>
+        <a href="https://tabelog.com" class="sp-reserve-button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2"/><line x1=\"16\" y1=\"2\" x2=\"16\" y2=\"6\"/><line x1=\"8\" y1=\"2\" x2=\"8\" y2=\"6\"/><line x1=\"3\" y1=\"10\" x2=\"21\" y2=\"10\"/>
+          </svg>
+          ご予約はこちら
+        </a>
+        <p class="sp-reserve-note">※ 外部サイト（食べログ）に移動します</p>
       </li>
     </ul>
-
-    <a href="#reservation" class="nav-reserve">ご予約</a>
-  </nav>
+    
+    </nav>
 </header>
 
 <main>
-  <div class="content-mock">
-    <h1 style="font-family: 'Zen Old Mincho', serif; font-size: 2.5rem; color: var(--wa-brown);">和モダンな空間で味わう</h1>
-    <p style="color: var(--wa-muted); margin-top: 1rem;">画面の横幅を縮めると、PC用メニューと予約ボタンが消え、ハンバーガーメニューの中に「ご予約はこちら」が統合されます。</p>
-  </div>
+  <section class="hero">
+    <div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1578474846511-04ba529f0b88?q=80&w=1200')"></div>
+    <div class="hero-content">
+      <h1 class="hero-logo">るぷらんどる</h1>
+      <p class="hero-sub">居酒屋バル</p>
+      <p class="hero-lead">居心地の良い和モダンな空間で、<br>厳選したお酒と創作料理を心ゆくまで。</p>
+    </div>
+  </section>
+
+  <section id="concept" class="concept">
+    <h2 class="section-title">当店について</h2>
+    <p class="concept-text">
+      日常の喧騒を離れ、ほっと一息つける場所。<br>
+      「るぷらんどる（reprendre）」は、フランス語で「再び始める」「元気を取り戻す」という意味を持ちます。<br>
+      和の趣を感じる落ち着いた空間の中で、美味しいお料理とお酒と共に、特別なひとときをお過ごしください。
+    </p>
+  </section>
+
+  <section id="access" class="reserve-section">
+    <h2 class="reserve-title">ご予約・お問い合わせ</h2>
+    <p class="reserve-text">皆様のご来店を、心よりお待ちしております。</p>
+    <a href="https://tabelog.com" style="font-family:'Noto Sans JP',sans-serif;font-size:.85rem;letter-spacing:.2em;padding:1.1rem 3rem;background:#b8924a;color:#1e1210;text-decoration:none;display:inline-flex;align-items:center;gap:.8rem"
+       onmouseover="this.style.background='#6b2737';this.style.color='#f7f2ea'"
+       onmouseout="this.style.background='#b8924a';this.style.color='#1e1210'">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+      </svg>
+      ご予約はこちら
+    </a>
+    <p style="font-family:'Noto Sans JP',sans-serif;font-size:.72rem;font-weight:300;color:rgba(247,242,234,.35);letter-spacing:.05em;margin-top:1rem">※ 外部サイト（食べログ）に移動します</p>
+  </section>
 </main>
+
+<footer>
+  <div class="foot-logo">居酒屋バル るぷらんどる</div>
+  <div class="copyright">&copy; 2026 reprendre. All Rights Reserved.</div>
+</footer>
 
 </body>
 </html>
