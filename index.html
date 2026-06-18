@@ -15,198 +15,354 @@
   body{background:var(--paper);color:var(--ink);font-family:'Noto Serif JP',serif;line-height:1.8}
 
   /* NAV */
-  nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 4rem;background:rgba(250,248,244,0.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
-  .logo{font-family:'Shippori Mincho',serif;font-size:1.4rem;font-weight:600;letter-spacing:.15em;color:var(--brown);text-decoration:none}
-  .logo span{font-size:.75rem;font-weight:400;color:var(--gold);margin-left:.6rem;letter-spacing:.05em}
-  .nav-right{display:flex;align-items:center;gap:3rem}
-  .nav-links{display:flex;gap:3rem;list-style:none}
-  .nav-links a{font-family:'Noto Sans JP',sans-serif;font-size:.82rem;font-weight:400;color:var(--muted);text-decoration:none;letter-spacing:.1em;transition:color .3s}
-  .nav-links a:hover{color:var(--wine)}
-  
-  /* スマホ専用予約ボタン：PC時は非表示 */
-  .nav-links .sp-reserve-item {
-    display: none;
-  }
-
-  .nav-reserve-btn{font-family:'Noto Sans JP',sans-serif;font-size:.78rem;font-weight:400;letter-spacing:.1em;color:var(--cream);background:var(--wine);text-decoration:none;padding:.5rem 1.4rem;transition:background .3s}
-  .nav-reserve-btn:hover{background:var(--brown)}
-  .menu-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:110}
-  .menu-toggle span{display:block;width:22px;height:1.5px;background:var(--brown);transition:.3s}
+  nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 3rem;background:rgba(250,248,244,0.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+  .logo{font-family:'Shippori Mincho',serif;font-size:1.6rem;color:var(--brown);letter-spacing:.2em;text-decoration:none}
+  .logo em{color:var(--wine);font-style:normal}
+  .nav-links{display:flex;gap:2.5rem;list-style:none}
+  .nav-links a{font-family:'Noto Sans JP',sans-serif;font-size:.75rem;font-weight:300;letter-spacing:.15em;color:var(--muted);text-decoration:none;transition:color .3s}
+  .nav-links a:hover{color:var(--brown)}
+  .btn-reserve{font-family:'Noto Sans JP',sans-serif;font-size:.75rem;letter-spacing:.12em;padding:.55rem 1.6rem;background:var(--wine);color:#f7f2ea;border:none;cursor:pointer;transition:background .3s}
+  .btn-reserve:hover{background:var(--brown)}
 
   /* HERO */
-  .hero{position:relative;height:100vh;background:#2a1d15;display:flex;align-items:center;justify-content:center;overflow:hidden}
-  .hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;background-image:url('https://images.unsplash.com/photo-1578474846511-04ba529f0b88?q=80&w=1200');background-size:cover;background-position:center;opacity:.4;filter:grayscale(20%)}
-  .hero-content{position:relative;z-index:10;text-align:center;color:var(--cream);padding:0 1.5rem}
-  .hero-logo{font-family:'Shippori Mincho',serif;font-size:3.2rem;font-weight:600;letter-spacing:.3em;color:var(--cream);margin-bottom:1.5rem;margin-right:-.3em}
-  .hero-sub{font-family:'Shippori Mincho',serif;font-size:1.1rem;font-weight:400;letter-spacing:.4em;color:var(--gold);margin-bottom:3.5rem;margin-right:-.4em}
-  .hero-lead{font-size:.95rem;font-weight:300;letter-spacing:.18em;line-height:2.2;color:rgba(247,242,234,.85)}
+  .hero{display:grid;grid-template-columns:55% 45%;min-height:92vh;border-bottom:1px solid var(--border)}
+  .hero-left{display:flex;flex-direction:column;justify-content:center;padding:6rem 4rem 6rem 5rem;border-right:1px solid var(--border)}
+  .hero-tag{font-family:'Noto Sans JP',sans-serif;font-size:.65rem;letter-spacing:.35em;color:var(--gold);margin-bottom:2rem}
+  .hero-title{font-family:'Shippori Mincho',serif;font-size:3.8rem;line-height:1.25;color:var(--brown);letter-spacing:.05em;margin-bottom:1.2rem}
+  .hero-title span{display:block;font-size:1.1rem;font-family:'Noto Serif JP',serif;font-weight:300;color:var(--muted);letter-spacing:.4em;margin-top:.6rem}
+  .hero-lead{font-family:'Noto Sans JP',sans-serif;font-size:.82rem;font-weight:300;color:var(--muted);line-height:2.2;max-width:380px;margin-bottom:3rem}
+  .hero-actions{display:flex;gap:1rem;align-items:center}
+  .btn-primary{font-family:'Noto Sans JP',sans-serif;font-size:.78rem;letter-spacing:.12em;padding:.8rem 2.2rem;background:var(--brown);color:var(--cream);border:none;cursor:pointer;transition:background .3s}
+  .btn-primary:hover{background:var(--wine)}
+  .btn-sec{font-family:'Noto Sans JP',sans-serif;font-size:.78rem;letter-spacing:.12em;padding:.8rem 2.2rem;background:transparent;color:var(--brown);border:1px solid var(--brown);cursor:pointer;transition:all .3s}
+  .btn-sec:hover{background:var(--cream)}
+  .hero-right{background:#3d2314;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+  .hero-pattern{position:absolute;inset:0;opacity:.04;background-image:repeating-linear-gradient(0deg,rgba(184,146,74,1) 0,rgba(184,146,74,1) 1px,transparent 0,transparent 40px),repeating-linear-gradient(90deg,rgba(184,146,74,1) 0,rgba(184,146,74,1) 1px,transparent 0,transparent 40px)}
+  .hero-art{position:relative;z-index:1;text-align:center;padding:3rem}
+  .hero-art-text{font-family:'Shippori Mincho',serif;font-size:1rem;color:rgba(184,146,74,.95);letter-spacing:.4em;line-height:2.5;writing-mode:vertical-rl;margin:2rem auto 0}
 
-  /* SECTION COMMON */
-  section{padding:8rem 2rem;position:relative}
-  .container{max-width:1000px;margin:0 auto}
-  .section-title{font-family:'Shippori Mincho',serif;font-size:1.8rem;font-weight:600;letter-spacing:.25em;color:var(--brown);text-align:center;margin-bottom:5rem;position:relative;padding-bottom:1.5rem}
-  .section-title::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:30px;height:1px;background:var(--gold)}
+  /* DIVIDER */
+  .divider{display:flex;align-items:center;gap:1.5rem;padding:3.5rem 5rem}
+  .divider-line{flex:1;height:1px;background:var(--border)}
+  .divider-text{font-family:'Noto Sans JP',sans-serif;font-size:.65rem;letter-spacing:.3em;color:var(--gold)}
 
   /* CONCEPT */
-  .concept{background:var(--paper)}
-  .concept-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-  .concept-text{font-size:.92rem;font-weight:300;letter-spacing:.15em;line-height:2.4;color:var(--ink)}
-  .concept-text p{margin-bottom:2rem}
-  .concept-text p:last-child{margin-bottom:0}
-  .concept-img{position:relative;padding-bottom:120%;overflow:hidden}
-  .concept-img img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;filter:grayscale(10%)}
+  .concept{padding:2rem 5rem 6rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+  .concept-text h2{font-family:'Shippori Mincho',serif;font-size:2.2rem;color:var(--brown);line-height:1.4;letter-spacing:.08em;margin-bottom:2rem}
+  .concept-text p{font-family:'Noto Sans JP',sans-serif;font-size:.83rem;font-weight:300;color:var(--muted);line-height:2.2;margin-bottom:1.2rem}
+  .concept-visual{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)}
+  .concept-tile{background:var(--paper);padding:2rem 1.5rem;text-align:center}
+  .concept-tile-icon{width:40px;height:40px;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center}
+  .concept-tile h3{font-family:'Shippori Mincho',serif;font-size:1rem;color:var(--brown);margin-bottom:.5rem;letter-spacing:.1em}
+  .concept-tile p{font-family:'Noto Sans JP',sans-serif;font-size:.72rem;font-weight:300;color:var(--muted);line-height:1.9}
 
-  /* RESERVATION */
-  .reserve-section{background:var(--ink);color:var(--cream);text-align:center;padding:7rem 2rem}
-  .reserve-title{font-family:'Shippori Mincho',serif;font-size:1.6rem;font-weight:600;letter-spacing:.2em;color:var(--gold);margin-bottom:1.5rem}
-  .reserve-text{font-size:.88rem;font-weight:300;color:rgba(247,242,234,.7);letter-spacing:.12em;line-height:2;margin-bottom:3rem}
+  /* MENU */
+  .menu-section{padding:5rem;background:var(--cream);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+  .section-header{margin-bottom:3rem}
+  .section-header .label{font-family:'Noto Sans JP',sans-serif;font-size:.65rem;letter-spacing:.3em;color:var(--gold);margin-bottom:.8rem}
+  .section-header h2{font-family:'Shippori Mincho',serif;font-size:2rem;color:var(--brown);letter-spacing:.1em}
+  .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+  .menu-card{background:var(--paper);padding:2.5rem 2rem;transition:background .3s}
+  .menu-card:hover{background:white}
+  .menu-cat{font-family:'Noto Sans JP',sans-serif;font-size:.62rem;letter-spacing:.25em;color:var(--gold);margin-bottom:1rem}
+  .menu-card h3{font-family:'Shippori Mincho',serif;font-size:1.2rem;color:var(--brown);letter-spacing:.08em;margin-bottom:.8rem}
+  .menu-card p{font-family:'Noto Sans JP',sans-serif;font-size:.75rem;font-weight:300;color:var(--muted);line-height:1.9;margin-bottom:1.2rem}
+  .menu-price{font-family:'Noto Serif JP',serif;font-size:.85rem;color:var(--wine)}
+
+  /* WINE */
+  .wine-section{padding:5rem;border-bottom:1px solid var(--border)}
+  .wine-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);margin-top:3rem}
+  .wine-card{background:var(--paper);padding:2rem;display:flex;gap:1.5rem;align-items:flex-start;transition:background .3s}
+  .wine-card:hover{background:white}
+  .wine-color-dot{width:12px;height:12px;border-radius:50%;margin-top:4px;flex-shrink:0}
+  .wine-info h3{font-family:'Shippori Mincho',serif;font-size:1rem;color:var(--brown);margin-bottom:.4rem}
+  .wine-info p{font-family:'Noto Sans JP',sans-serif;font-size:.73rem;font-weight:300;color:var(--muted);line-height:1.9}
+  .wine-info .pair{font-size:.68rem;color:var(--gold);margin-top:.5rem;letter-spacing:.05em}
+
+  /* INFO */
+  .info-section{padding:5rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;border-bottom:1px solid var(--border)}
+  .info-block h2{font-family:'Shippori Mincho',serif;font-size:1.8rem;color:var(--brown);letter-spacing:.1em;margin-bottom:2rem}
+  .info-table{width:100%;border-collapse:collapse}
+  .info-table tr{border-bottom:1px solid var(--border)}
+  .info-table td{padding:.9rem 0;font-family:'Noto Sans JP',sans-serif;font-size:.8rem;font-weight:300}
+  .info-table td:first-child{color:var(--muted);width:40%;letter-spacing:.05em}
+  .info-note{font-family:'Noto Sans JP',sans-serif;font-size:.72rem;font-weight:300;color:var(--muted);margin-top:1rem;line-height:2}
+  .map-placeholder{background:var(--cream);border:1px solid var(--border);height:220px;display:flex;align-items:center;justify-content:center;margin-top:1rem}
+  .map-placeholder p{font-family:'Noto Sans JP',sans-serif;font-size:.75rem;color:var(--muted);letter-spacing:.1em}
+
+  /* CTA */
+  .cta-section{padding:6rem 5rem;background:#1e1210;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+  .cta-text h2{font-family:'Shippori Mincho',serif;font-size:2.2rem;color:var(--cream);line-height:1.4;letter-spacing:.08em;margin-bottom:1.5rem}
+  .cta-text p{font-family:'Noto Sans JP',sans-serif;font-size:.82rem;font-weight:300;color:rgba(247,242,234,.55);line-height:2.2}
+  .cta-form{display:flex;flex-direction:column;gap:1rem}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .form-field{display:flex;flex-direction:column;gap:.4rem}
+  .form-field label{font-family:'Noto Sans JP',sans-serif;font-size:.65rem;letter-spacing:.15em;color:rgba(184,146,74,.8)}
+  .form-field input,.form-field select,.form-field textarea{background:rgba(255,255,255,.06);border:1px solid rgba(184,146,74,.25);padding:.65rem .9rem;color:var(--cream);font-family:'Noto Sans JP',sans-serif;font-size:.8rem;font-weight:300;outline:none;-webkit-appearance:none;transition:border-color .3s}
+  .form-field input::placeholder,.form-field textarea::placeholder{color:rgba(247,242,234,.3)}
+  .form-field input:focus,.form-field select:focus,.form-field textarea:focus{border-color:rgba(184,146,74,.6)}
+  .form-field select option{background:#1e1210;color:var(--cream)}
+  .form-field textarea{resize:vertical;min-height:80px}
+  .btn-form{font-family:'Noto Sans JP',sans-serif;font-size:.78rem;letter-spacing:.2em;padding:.9rem 2.4rem;background:var(--gold);color:#1e1210;border:none;cursor:pointer;align-self:flex-start;transition:all .3s;margin-top:.5rem}
+  .btn-form:hover{background:var(--wine);color:var(--cream)}
 
   /* FOOTER */
-  footer{background:#110d0a;padding:4rem 2rem;text-align:center;border-top:1px solid rgba(74,46,26,0.1)}
-  .foot-logo{font-family:'Shippori Mincho',serif;font-size:1.2rem;letter-spacing:.2em;color:rgba(247,242,234,.6);margin-bottom:1.5rem}
-  .copyright{font-family:'Noto Sans JP',sans-serif;font-size:.7rem;font-weight:300;color:rgba(247,242,234,.25);letter-spacing:.05em}
+  footer{padding:2.5rem 5rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border)}
+  .foot-logo{font-family:'Shippori Mincho',serif;font-size:1.1rem;color:var(--brown);letter-spacing:.2em}
+  footer p{font-family:'Noto Sans JP',sans-serif;font-size:.65rem;font-weight:300;color:var(--muted);letter-spacing:.1em}
 
-  /* ANIMATION */
-  .fade-in{opacity:0;transform:translateY(30px);transition:opacity 1s,transform 1s}
-  .fade-in.active{opacity:1;transform:translateY(0)}
+  @media(max-width:768px){
+    /* NAV */
+    nav{padding:.7rem 1rem;gap:.6rem;flex-wrap:nowrap}
+    .logo img{height:28px !important}
+    .nav-links{display:none}
+    .btn-reserve{font-size:.65rem;padding:.4rem .7rem;letter-spacing:.05em;white-space:nowrap;min-width:auto}
+    nav a[aria-label="Instagram"] svg{width:22px;height:22px}
+    /* HERO */
+    .hero{grid-template-columns:1fr;min-height:auto}
+    .hero-left{padding:2.5rem 1.5rem 2.5rem;border-right:none;border-bottom:1px solid var(--border)}
+    .hero-tag{font-size:.6rem;margin-bottom:1.2rem;letter-spacing:.2em}
+    .hero-title{font-size:2rem;margin-bottom:1rem}
+    .hero-title span{font-size:.8rem;letter-spacing:.2em}
+    .hero-lead{font-size:.78rem;line-height:2;margin-bottom:2rem}
+    .hero-actions{flex-direction:column;align-items:stretch;gap:.8rem}
+    .btn-primary,.btn-sec{text-align:center;padding:.9rem 1.5rem;font-size:.78rem}
+    .hero-right{min-height:200px}
 
-  /* RESPONSIVE */
-  @media (max-width:960px){
-    nav{padding:1.2rem 2rem}
-    .concept-grid{grid-template-columns:1fr;gap:3rem}
-    .concept-img{padding-bottom:60%}
-  }
-  @media (max-width:768px){
-    .nav-right{gap:1.5rem}
-    .menu-toggle{display:flex}
-    
-    /* 元コードのスマホメニュー開閉スタイル */
-    .nav-links{position:fixed;top:0;right:-100%;width:80%;height:100vh;background:rgba(250,248,244,0.98);flex-direction:column;justify-content:center;align-items:center;gap:3rem;transition:.4s;box-shadow:-5px 0 15px rgba(0,0,0,0.05)}
-    .nav-links.active{right:0}
-    .nav-links a{font-family:'Shippori Mincho',serif;font-size:1.15rem;color:var(--brown)}
-    
-    .menu-toggle.active span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
-    .menu-toggle.active span:nth-child(2){opacity:0}
-    .menu-toggle.active span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+    /* DIVIDER */
+    .divider{padding:1.8rem 1.5rem}
 
-    .hero-logo{font-size:2.4rem}
-    .hero-sub{font-size:.9rem;margin-bottom:2.5rem}
-    .hero-lead{font-size:.85rem;line-height:2}
-    section{padding:5rem 1.5rem}
-    .section-title{margin-bottom:3.5rem}
+    /* CONCEPT */
+    #concept{min-height:300px !important}
+    #concept > div:last-child{padding:2rem 1.5rem !important}
+    #concept h2{font-size:1.5rem !important;margin-bottom:1rem !important}
+    #concept p{font-size:.78rem !important}
 
-    /* スマホ表示時：ハンバーガーメニュー内（.nav-links）で予約ボタンを表示 */
-    .nav-links .sp-reserve-item {
-      display: block;
-      text-align: center;
-      margin-top: 1rem;
-    }
+    /* WINE */
+    .wine-section{padding:2.5rem 1.5rem}
+    .wine-grid{grid-template-columns:1fr}
+    .wine-card{padding:1.5rem}
+    .wine-info h3{font-size:.9rem}
+    .wine-info p{font-size:.72rem}
+    .section-header{margin-bottom:2rem}
+    .section-header h2{font-size:1.5rem}
+    .section-header .label{font-size:.6rem}
+
+    /* INFO */
+    .info-section{grid-template-columns:1fr;gap:2.5rem;padding:2.5rem 1.5rem}
+    .info-block h2{font-size:1.4rem;margin-bottom:1.2rem}
+    .info-table td{font-size:.74rem;padding:.7rem 0}
+
+    /* CTA */
+    .cta-section{grid-template-columns:1fr;gap:2rem;padding:3rem 1.5rem}
+    .cta-text h2{font-size:1.5rem;margin-bottom:1rem}
+    .cta-text p{font-size:.78rem}
+
+    /* FOOTER */
+    footer{padding:1.8rem 1.5rem;flex-direction:column;gap:1rem;text-align:center}
+    .foot-logo{font-size:.95rem}
+    footer p{font-size:.6rem}
   }
 </style>
 </head>
 <body>
 
-<header>
-  <nav>
-    <a href="#" class="logo">るぷらんどる<span>reprendre</span></a>
-    <div class="nav-right">
-      <ul class="nav-links">
-        <li><a href="#concept">こだわり</a></li>
-        <li><a href="#menu">お品書き</a></li>
-        <li><a href="#access">店舗情報</a></li>
-        <li class="sp-reserve-item">
-          <a href="https://tabelog.com" style="font-family:'Noto Sans JP',sans-serif;font-size:.85rem;letter-spacing:.2em;padding:1.1rem 3rem;background:#b8924a;color:#1e1210;text-decoration:none;display:inline-flex;align-items:center;gap:.8rem"
-             onmouseover="this.style.background='#6b2737';this.style.color='#f7f2ea'"
-             onmouseout="this.style.background='#b8924a';this.style.color='#1e1210'">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
-            </svg>
-            ご予約はこちら
-          </a>
-          <p style="font-family:'Noto Sans JP',sans-serif;font-size:.72rem;font-weight:300;color:var(--muted);letter-spacing:.05em;margin-top:0.8rem; text-align:center;">※ 外部サイト（食べログ）に移動します</p>
-        </li>
-      </ul>
-      
-      <div class="menu-toggle" id="menu-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
+<nav>
+  <a href="#" style="display:inline-flex;align-items:center;text-decoration:none"><img src="data:image/png;base64,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...
+    <ul class="nav-links">
+      <li><a href="#concept">こだわり</a></li>
+      <li><a href="#menu">お品書き</a></li>
+      <li><a href="#wine">ワイン</a></li>
+      <li><a href="#info">店舗情報</a></li>
+    </ul>
+    <button class="btn-reserve">ご予約</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-tag">IZAKAYA BAR REPRENDRE</p>
+    <h1 class="hero-title">るぷらんどる<span>居酒屋バル</span></h1>
+    <p class="hero-lead">心地よい和モダンな空間で、厳選されたワインと創作料理のマリアージュを。大切なひとときを、豊かに彩る大人の隠れ家。</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="location.href='#concept'">当店について</button>
+      <button class="btn-sec" onclick="location.href='#menu'">お品書きを見る</button>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-pattern"></div>
+    <div class="hero-art">
+      <p class="hero-art-text">日常を離れ、美酒に酔う</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider">
+  <div class="divider-line"></div>
+  <div class="divider-text">CONCEPT</div>
+  <div class="divider-line"></div>
+</div>
+
+<section id="concept" class="concept">
+  <div class="concept-text">
+    <h2>「再び始める」という名の、心地よい日常の止まり木</h2>
+    <p>店名「るぷらんどる（reprendre）」は、フランス語で「再び始める」「元気を取り戻す」という意味を持ちます。一日の終わりに、あるいは新しい何かが始まる予感の前に、ふらりと立ち寄れる場所でありたいという想いを込めました。</p>
+    <p>シックな黒を基調としながらも、随所に木や真鍮の温かみを感じる和モダンな空間。お一人様でグラスを傾ける静かな夜も、大切な方との語らいの時間も、心地よい距離感で寄り添います。</p>
+  </div>
+  <div class="concept-visual">
+    <div class="concept-tile">
+      <div class="concept-tile-icon">🍷</div>
+      <h3>厳選の国産ワイン</h3>
+      <p>造り手のこだわりが光る日本全国のワイナリーから、料理に寄り添う銘柄を厳選。</p>
+    </div>
+    <div class="concept-tile">
+      <div class="concept-tile-icon">🥖</div>
+      <h3>和洋の創作料理</h3>
+      <p>伝統的な和の出汁や調味料をベースに、洋の遊び心を加えたオリジナルの小皿料理。</p>
+    </div>
+    <div class="concept-tile">
+      <div class="concept-tile-icon">🛋️</div>
+      <h3>モダンな居心地</h3>
+      <p>洗練されたカウンター席と、落ち着きのあるテーブル席。大人が寛げるモダンな空間。</p>
+    </div>
+    <div class="concept-tile">
+      <div class="concept-tile-icon">✨</div>
+      <h3>気ままなひととき</h3>
+      <p>お仕事帰りの一杯から、しっかりとしたディナーまで、シーンを選ばず愉しめます。</p>
+    </div>
+  </div>
+</section>
+
+<section id="menu" class="menu-section">
+  <div class="section-header">
+    <p class="label">RECOMMENDED DISHES</p>
+    <h2>本日のおすすめ</h2>
+  </div>
+  <div class="menu-grid">
+    <div class="menu-card">
+      <p class="menu-cat">SIGNATURE</p>
+      <h3>るぷらんどる特製 前菜盛り合わせ</h3>
+      <p>旬の食材を使用した和洋折衷の小皿料理を、少しずつ愉しめる贅沢な一皿。まずはワインとご一緒に。</p>
+      <p class="menu-price">¥1,800</p>
+    </div>
+    <div class="menu-card">
+      <p class="menu-cat">MEAT</p>
+      <h3>国産牛すじの赤ワイン八丁味噌煮込み</h3>
+      <p>じっくりと時間をかけてトロトロになるまで煮込んだ牛すじ。赤ワインの渋みと八丁味噌のコクが絶妙に融合。</p>
+      <p class="menu-price">¥1,200</p>
+    </div>
+    <div class="menu-card">
+      <p class="menu-cat">SEAFOOD</p>
+      <h3>燻製香る 炙り〆サバのカルパッチョ</h3>
+      <p>軽く炙って旨味を引き出した〆サバに、ハーブの香る特製ビネガーソースとドライトマトを添えて。</p>
+      <p class="menu-price">¥980</p>
+    </div>
+  </div>
+</section>
+
+<section id="wine" class="wine-section">
+  <div class="section-header">
+    <p class="label">WINE LIST SELECTION</p>
+    <h2>料理を引き立てる日本のワイン</h2>
+  </div>
+  <div class="wine-grid">
+    <div class="wine-card">
+      <div class="wine-color-dot" style="background:#800020"></div>
+      <div class="wine-info">
+        <h3>マスカット・ベーリーA（山梨県産）</h3>
+        <p>イチゴのような華やかな甘い香りと、軽やかで優しい味わい。醤油ベースの煮込み料理によく合います。</p>
+        <p class="pair">おすすめペアリング：牛すじの赤ワイン八丁味噌煮込み</p>
       </div>
     </div>
-  </nav>
-</header>
-
-<main>
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-content">
-      <h1 class="hero-logo">るぷらんどる</h1>
-      <p class="hero-sub">居酒屋バル</p>
-      <p class="hero-lead">居心地の良い和モダンな空間で、<br>厳選したお酒と創作料理を心ゆくまで。</p>
-    </div>
-  </section>
-
-  <section id="concept" class="concept">
-    <div class="container">
-      <h2 class="section-title fade-in">当店について</h2>
-      <div class="concept-grid">
-        <div class="concept-text fade-in">
-          <p>日常の喧騒を離れ、ほっと一息つける場所。</p>
-          <p>「るぷらんどる（reprendre）」は、フランス語で「再び始める」「元気を取り戻す」という意味を持ちます。</p>
-          <p>和の趣を感じる落ち着いた空間の中で、美味しいお料理とお酒と共に、特別なひとときをお過ごしください。</p>
-        </div>
-        <div class="concept-img fade-in">
-          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1200" alt="店内の様子">
-        </div>
+    <div class="wine-card">
+      <div class="wine-color-dot" style="background:#e0da9d"></div>
+      <div class="wine-info">
+        <h3>甲州（山梨県産）</h3>
+        <p>柑橘系の爽やかな香りと、凛とした酸味が特徴の辛口白ワイン。お出汁の効いたお料理や和食全般を引き立てます。</p>
+        <p class="pair">おすすめペアリング：炙り〆サバのカルパッチョ</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="access" class="reserve-section">
-    <div class="container">
-      <h2 class="reserve-title">ご予約・お問い合わせ</h2>
-      <p class="reserve-text">皆様のご来店を、心よりお待ちしております。</p>
-      <a href="https://tabelog.com" style="font-family:'Noto Sans JP',sans-serif;font-size:.85rem;letter-spacing:.2em;padding:1.1rem 3rem;background:#b8924a;color:#1e1210;text-decoration:none;display:inline-flex;align-items:center;gap:.8rem"
-         onmouseover="this.style.background='#6b2737';this.style.color='#f7f2ea'"
-         onmouseout="this.style.background='#b8924a';this.style.color='#1e1210'">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
-        </svg>
-        ご予約はこちら
-      </a>
-      <p style="font-family:'Noto Sans JP',sans-serif;font-size:.72rem;font-weight:300;color:rgba(247,242,234,.35);letter-spacing:.05em;margin-top:1rem">※ 外部サイト（食べログ）に移動します</p>
+<section id="info" class="info-section">
+  <div class="info-block">
+    <h2>店舗情報</h2>
+    <table class="info-table">
+      <tr>
+        <td>店名</td>
+        <td>居酒屋バル るぷらんどる (reprendre)</td>
+      </tr>
+      <tr>
+        <td>住所</td>
+        <td>〒000-0000 大阪府大阪市中央区○○町 1-2-3</td>
+      </tr>
+      <tr>
+        <td>営業時間</td>
+        <td>17:00 〜 24:00 (L.O. 23:30)</td>
+      </tr>
+      <tr>
+        <td>定休日</td>
+        <td>日曜日・祝日</td>
+      </tr>
+      <tr>
+        <td>電話番号</td>
+        <td>06-0000-0000</td>
+      </tr>
+    </table>
+    <p class="info-note">※座席数に限りがございますため、週末は事前のご予約をおすすめいたします。<br>※貸切のご相談も承ります。お気軽にお問い合わせください。</p>
+  </div>
+  <div class="info-block">
+    <h2>位置情報</h2>
+    <div class="map-placeholder">
+      <p>【Google Map 埋め込みエリア】</p>
     </div>
-  </section>
-</main>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="cta-text">
+    <h2>特別な夜のご予約を</h2>
+    <p>カウンターでのお一人様利用から、少人数でのご会食まで。心地よい空間をご用意してお待ちしております。お席のご要望などがございましたら、お気軽にお書き添えください。</p>
+  </div>
+  <div class="cta-form">
+    <div class="form-row">
+      <div class="form-field">
+        <label>お名前</label>
+        <input type="text" placeholder="山田 太郎">
+      </div>
+      <div class="form-field">
+        <label>お電話番号</label>
+        <input type="tel" placeholder="090-0000-0000">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-field">
+        <label>ご来店希望日</label>
+        <input type="date">
+      </div>
+      <div class="form-field">
+        <label>人数</label>
+        <select>
+          <option>1名</option>
+          <option>2名</option>
+          <option>3名</option>
+          <option>4名</option>
+          <option>5名以上（要相談）</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-field">
+      <label>ご要望・メッセージ</label>
+      <textarea placeholder="アレルギーの有無や、お席のご希望（カウンター席など）がございましたらご記入ください。"></textarea>
+    </div>
+    <button class="btn-form">この内容で予約する</button>
+  </div>
+</section>
 
 <footer>
   <div class="foot-logo">居酒屋バル るぷらんどる</div>
-  <div class="copyright">&copy; 2026 reprendre. All Rights Reserved.</div>
+  <p>&copy; 2026 reprendre. All Rights Reserved.</p>
 </footer>
-
-<script>
-  // 元のJavaScript制御
-  const menuToggle = document.getElementById('menu-toggle');
-  const navLinks = document.querySelector('.nav-links');
-
-  menuToggle.addEventListener('click', () => {
-    menuToggle.classList.toggle('active');
-    navLinks.classList.toggle('active');
-  });
-
-  // スクロールアニメーションの制御
-  const fadeIns = document.querySelectorAll('.fade-in');
-  const handleScroll = () => {
-    fadeIns.forEach(el => {
-      const rect = el.getBoundingClientRect();
-      if(rect.top < window.innerHeight * 0.85) {
-        el.classList.add('active');
-      }
-    });
-  };
-  window.addEventListener('scroll', handleScroll);
-  window.addEventListener('load', handleScroll);
-</script>
 
 </body>
 </html>
