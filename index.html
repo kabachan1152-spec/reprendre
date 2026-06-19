@@ -4,146 +4,150 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>居酒屋バルるぷらんどる — reprendre</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Shippori+Mincho:wght@400;600&family=Noto+Sans+JP:wght@300;400&display=swap" rel=\"stylesheet\">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Shippori+Mincho:wght@400;600&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
   :root{\n    --ink:#1a1410;--brown:#4a2e1a;--wine:#6b2737;--gold:#b8924a;
     --cream:#f7f2ea;--paper:#faf8f4;--muted:#7a6a5a;--border:rgba(74,46,26,0.15)
   }
   html{scroll-behavior:smooth}
-  body{background:var(--paper);color:var(--ink);font-family:'Noto Serif JP',serif;line-height:1.8;padding-bottom:60px} /* スマホ固定ボタン用の余白 */
+  body{background:var(--paper);color:var(--ink);font-family:'Noto Serif JP',serif;line-height:1.8}
 
-  /* ========== HEADER (PC 2段構成) ========== */
+  /* ========== HEADER ========== */
   header{position:sticky;top:0;z-index:100;background:var(--paper);border-bottom:1px solid var(--border);box-shadow:0 1px 8px rgba(74,46,26,.06)}
   
   /* ナビ上段 */
-  .nav-top{display:flex;justify-content:between;align-items:center;padding:0.75rem 2rem;border-bottom:1px solid rgba(74,46,26,0.08)}
+  .nav-top{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 2rem;max-width:1200px;margin:0 auto;width:100%}
   .logo-area{display:flex;align-items:center;gap:15px}
   .logo-img{height:36px;display:block}
-  .nav-contact{display:flex;align-items:center;gap:20px}
-  .nav-tel{font-family:'Noto Sans JP',sans-serif;font-weight:400;color:var(--brown);text-decoration:none;font-size:1.05rem}
   
-  /* 共通ボタンスタイル */
-  .btn-reserve{display:inline-block;background:var(--wine);color:var(--cream);padding:0.5rem 1.5rem;border-radius:2px;text-decoration:none;font-size:0.9rem;font-weight:600;letter-spacing:.05em;transition:all .3s}
+  .nav-contact{display:flex;align-items:center;gap:24px}
+  .nav-tel{font-family:'Noto Sans JP',sans-serif;font-weight:400;color:var(--brown);text-decoration:none;font-size:1.1rem;letter-spacing:.05em}
+  
+  .btn-reserve{display:inline-block;background:var(--wine);color:var(--cream);padding:0.7rem 2rem;border-radius:2px;text-decoration:none;font-size:0.9rem;font-weight:600;letter-spacing:.08em;transition:all .3s;border:1px solid transparent}
   .btn-reserve:hover{background:var(--gold);color:var(--paper)}
 
   /* ナビ下段 */
-  .nav-bottom{display:flex;justify-content:center;align-items:center;padding:0.5rem 2rem;background:var(--cream)}
-  .nav-links{display:flex;gap:40px;list-style:none}
-  .nav-links a{text-decoration:none;color:var(--brown);font-size:0.95rem;font-weight:400;transition:color .3s}
+  .nav-bottom{border-top:1px solid rgba(74,46,26,0.08);background:var(--cream)}
+  .nav-bottom-inner{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;padding:0 2rem;height:50px}
+  .nav-links{display:flex;gap:50px;list-style:none}
+  .nav-links a{text-decoration:none;color:var(--brown);font-size:0.95rem;font-weight:400;letter-spacing:.05em;transition:color .3s;position:relative}
   .nav-links a:hover{color:var(--gold)}
   
-  /* PC用SNSアイコン */
-  .pc-sns{margin-left:40px;display:inline-flex;color:var(--brown);transition:color .3s}
+  .pc-sns{display:inline-flex;color:var(--brown);transition:color .3s}
   .pc-sns:hover{color:var(--gold)}
 
-  /* スマホ用要素（初期非表示） */
+  /* スマホ専用要素（初期非表示） */
   .hamburger, .sp-sns, .sp-fixed-btn{display:none}
 
   /* ========== HERO ========== */
-  #hero{display:flex;height:calc(100vh - 110px);min-height:500px;background:var(--paper);overflow:hidden}
-  .hero-left{flex:1.2;padding:6rem 4rem 4rem;display:flex;flex-direction:column;justify-content:center;position:relative}
-  .hero-left::after{content:\"\";position:absolute;right:0;top:15%;bottom:15%;width:1px;background:var(--border)}
+  #hero{display:flex;height:calc(100vh - 126px);min-height:600px;background:var(--paper);overflow:hidden}
+  .hero-left{flex:1.2;padding:0 4rem 0 6rem;display:flex;flex-direction:column;justify-content:center;position:relative}
+  .hero-left::after{content:"";position:absolute;right:0;top:15%;bottom:15%;width:1px;background:var(--border)}
   .hero-sub{font-size:.85rem;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-bottom:1.5rem;font-weight:600}
-  .hero-title{font-family:'Shippori Mincho',serif;font-size:3rem;line-height:1.4;font-weight:600;color:var(--ink);margin-bottom:2rem}
-  .hero-lead{font-size:1.05rem;color:var(--brown);max-width:480px;margin-bottom:3rem}
+  .hero-title{font-family:'Shippori Mincho',serif;font-size:3.5rem;line-height:1.4;font-weight:600;color:var(--ink);margin-bottom:2.5rem;letter-spacing:.05em}
+  .hero-lead{font-size:1.05rem;color:var(--brown);max-width:480px;line-height:2;font-weight:300}
   
   .hero-right{flex:0.8;background:#3d2314;position:relative;display:flex;align-items:center;justify-content:center}
   .hero-bg-logo{width:45%;opacity:0.85;color:var(--gold)}
-  .hero-vertical-text{position:absolute;right:10%;bottom:15%;writing-mode:vertical-rl;font-family:'Shippori Mincho',serif;font-size:1.2rem;letter-spacing:.4em;color:rgba(184,146,74,0.95);font-weight:400}
+  .hero-vertical-text{position:absolute;right:12%;bottom:15%;writing-mode:vertical-rl;font-family:'Shippori Mincho',serif;font-size:1.25rem;letter-spacing:.5em;color:rgba(184,146,74,0.95);font-weight:400}
 
   /* ========== CONCEPT ========== */
-  #concept{position:relative;padding:8rem 4rem;background-size:cover;background-position:center;background-repeat:no-repeat;background-image:url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\"><rect width=\"100\" height=\"100\" fill=\"%234a2e1a\"/></svg>')}
+  #concept{position:relative;padding:10rem 4rem;background-size:cover;background-position:center;background-repeat:no-repeat;background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect width="100" height="100" fill="%234a2e1a"/></svg>')}
   .concept-overlay{position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(26,20,16,0.75);z-index:1}
   .concept-content{position:relative;z-index:2;max-width:800px;margin:0 auto;text-align:center;color:var(--cream)}
-  .section-sub{font-size:.8rem;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:1rem;display:block;font-weight:600}
-  .section-title{font-family:'Shippori Mincho',serif;font-size:2.2rem;font-weight:600;margin-bottom:3rem;letter-spacing:.05em}
-  .concept-text{font-size:1.1rem;line-height:2.2;max-width:640px;margin:0 auto;font-weight:300}
+  .section-sub{font-size:.8rem;letter-spacing:.25em;color:var(--gold);text-transform:uppercase;margin-bottom:1.2rem;display:block;font-weight:600}
+  .section-title{font-family:'Shippori Mincho',serif;font-size:2.4rem;font-weight:600;margin-bottom:3.5rem;letter-spacing:.05em}
+  .concept-text{font-size:1.1rem;line-height:2.4;max-width:640px;margin:0 auto;font-weight:300;letter-spacing:.02em}
 
   /* ========== WINE ========== */
-  #wine{padding:8rem 4rem;background:var(--paper)}
+  #wine{padding:10rem 4rem;background:var(--paper)}
   .wine-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;max-width:1200px;margin:0 auto}
-  .wine-card{background:var(--paper);border:1px solid var(--border);padding:2.5rem 2rem;text-align:center;transition:transform .3s,box-shadow .3s}
+  .wine-card{background:var(--paper);border:1px solid var(--border);padding:3rem 2rem;text-align:center;transition:transform .3s,box-shadow .3s}
   .wine-card:hover{transform:translateY(-5px);box-shadow:0 12px 24px rgba(74,46,26,0.08)}
-  .wine-type{font-size:.75rem;letter-spacing:.1em;color:var(--gold);text-transform:uppercase;margin-bottom:0.5rem;display:block}
-  .wine-name{font-family:'Shippori Mincho',serif;font-size:1.25rem;font-weight:600;margin-bottom:1rem;color:var(--ink)}
-  .wine-desc{font-size:0.9rem;color:var(--muted);margin-bottom:1.5rem;line-height:1.6}
-  .wine-pairing{font-size:0.85rem;color:var(--wine);border-top:1px dashed var(--border);padding-top:1rem;font-weight:600}
+  .wine-type{font-size:.75rem;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin-bottom:0.8rem;display:block;font-weight:600}
+  .wine-name{font-family:'Shippori Mincho',serif;font-size:1.35rem;font-weight:600;margin-bottom:1.2rem;color:var(--ink)}
+  .wine-desc{font-size:0.9rem;color:var(--muted);margin-bottom:2rem;line-height:1.7;font-weight:300;text-align:left}
+  .wine-pairing{font-size:0.85rem;color:var(--wine);border-top:1px dashed var(--border);padding-top:1.2rem;font-weight:600;letter-spacing:.02em}
 
   /* ========== INFO & ACCESS ========== */
-  #access{padding:8rem 4rem;background:var(--cream);border-top:1px solid var(--border)}
-  .access-container{display:flex;max-width:1200px;margin:0 auto;gap:60px}
+  #access{padding:10rem 4rem;background:var(--cream);border-top:1px solid var(--border)}
+  .access-container{display:flex;max-width:1200px;margin:0 auto;gap:80px;align-items:center}
   .access-info{flex:1}
-  .info-table{width:100%;border-collapse:collapse;margin-top:2rem}
-  .info-table th, .info-table td{padding:1.2rem 0;border-bottom:1px solid rgba(74,46,26,0.1);text-align:left;vertical-align:top}
-  .info-table th{width:120px;font-family:'Shippori Mincho',serif;font-size:1rem;color:var(--brown);font-weight:600}
-  .info-table td{font-family:'Noto Sans JP',sans-serif;font-size:0.95rem;color:var(--ink)}
-  .map-area{flex:1.2;min-height:400px;background:var(--paper);border:1px solid var(--border)}
+  .info-table{width:100%;border-collapse:collapse;margin-top:2.5rem}
+  .info-table th, .info-table td{padding:1.4rem 0;border-bottom:1px solid rgba(74,46,26,0.1);text-align:left;vertical-align:top}
+  .info-table th{width:140px;font-family:'Shippori Mincho',serif;font-size:1.05rem;color:var(--brown);font-weight:600}
+  .info-table td{font-family:'Noto Sans JP',sans-serif;font-size:0.95rem;color:var(--ink);font-weight:300;line-height:1.7}
+  .map-area{flex:1.2;height:450px;background:var(--paper);border:1px solid var(--border);box-shadow:0 4px 16px rgba(74,46,26,0.04)}
   .map-area iframe{width:100%;height:100%;border:0;display:block}
 
   /* ========== RESERVE SECTION ========== */
-  #reserve{padding:8rem 4rem;background:var(--wine);color:var(--cream);text-align:center}
-  .reserve-container{max-width:600px;margin:0 auto}
-  .reserve-text{font-size:1.05rem;margin-bottom:2.5rem;line-height:1.8;color:rgba(247,242,234,0.9)}
-  .reserve-notice{font-family:'Noto Sans JP',sans-serif;font-size:.72rem;font-weight:300;color:rgba(247,242,234,.55);letter-spacing:.05em;margin-top:1rem}
+  #reserve{padding:10rem 4rem;background:var(--wine);color:var(--cream);text-align:center}
+  .reserve-container{max-width:650px;margin:0 auto}
+  .reserve-text{font-size:1.1rem;margin-bottom:3rem;line-height:2;color:rgba(247,242,234,0.95);font-weight:300}
+  .reserve-notice{font-family:'Noto Sans JP',sans-serif;font-size:.72rem;font-weight:300;color:rgba(247,242,234,.35);letter-spacing:.05em}
 
   /* ========== FOOTER ========== */
-  footer{background:var(--ink);color:var(--cream);padding:3rem 2rem;text-align:center;border-top:1px solid rgba(247,242,234,0.05)}
-  .foot-logo{font-family:'Shippori Mincho',serif;font-size:1.3rem;letter-spacing:.1em;margin-bottom:1.5rem}
-  footer p{font-size:0.8rem;color:rgba(247,242,234,0.4);margin-top:1.5rem;font-family:'Noto Sans JP',sans-serif}
+  footer{background:var(--ink);color:var(--cream);padding:4rem 2rem;text-align:center;border-top:1px solid rgba(247,242,234,0.05)}
+  .foot-logo{font-family:'Shippori Mincho',serif;font-size:1.4rem;letter-spacing:.15em;margin-bottom:2rem;color:var(--cream)}
+  footer p{font-size:0.8rem;color:rgba(247,242,234,0.3);margin-top:2rem;font-family:'Noto Sans JP',sans-serif;letter-spacing:.05em}
 
   /* ========== MOBILE MENU OVERLAY ========== */
-  .menu-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(26,20,16,0.95);z-index:200;flex-direction:column;justify-content:center;align-items:center}
-  .close-btn{position:absolute;top:20px;right:25px;font-size:2.5rem;color:var(--cream);cursor:pointer;background:none;border:none}
-  .overlay-links{list-style:none;text-align:center}
-  .overlay-links li{margin:2.5rem 0}
-  .overlay-links a{text-decoration:none;color:var(--cream);font-size:1.5rem;font-family:'Shippori Mincho',serif;letter-spacing:.1em;transition:color .3s}
+  .menu-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(26,20,16,0.98);z-index:200;flex-direction:column;justify-content:center;align-items:center}
+  .close-btn{position:absolute;top:24px;right:24px;font-size:3rem;color:var(--cream);cursor:pointer;background:none;border:none;font-weight:200}
+  .overlay-links{list-style:none;text-align:center;width:100%}
+  .overlay-links li{margin:2.2rem 0}
+  .overlay-links a{text-decoration:none;color:var(--cream);font-size:1.6rem;font-family:'Shippori Mincho',serif;letter-spacing:.15em;transition:color .3s;display:block}
   .overlay-links a:hover{color:var(--gold)}
 
   /* ========== RESPONSIVE (SMARTPHONE & TABLET) ========== */
-  @media(max-width:768px){
-    body{padding-bottom:60px} /* 固定ボタン用 */
-    
-    /* ヘッダー・ナビをスマホ用に再構築 */
-    .nav-top{padding:0.5rem 1rem;justify-content:space-between}
-    .logo-img{height:28px}
-    .nav-contact{display:none} /* PC用電話・ボタンを非表示 */
-    .nav-bottom{display:none}  /* PC用下段ナビリンクを非表示 */
-    
-    /* スマホ用Instagram・ハンバーガーの表示 */
-    .logo-area{gap:10px}
-    .sp-sns{display:inline-flex;color:var(--brown);margin-left:5px}
-    .hamburger{display:block;font-size:1.8rem;color:var(--brown);background:none;border:none;cursor:pointer}
+  @media(max-width:920px){
+    .wine-grid{grid-template-columns:repeat(2,1fr);gap:20px}
+    .access-container{flex-direction:column;gap:50px}
+    .map-area{width:100%;flex:none}
+  }
 
-    /* 固定フッター予約ボタン */
-    .sp-fixed-btn{display:block;position:fixed;bottom:0;left:0;width:100%;height:60px;background:var(--wine);z-index:150;box-shadow:0 -2px 10px rgba(0,0,0,0.2)}
+  @media(max-width:768px){
+    body{padding-bottom:60px}
+    
+    /* ナビゲーションのスマホ化調整 */
+    .nav-top{padding:1rem 1.5rem}
+    .logo-img{height:30px}
+    .nav-contact, .nav-bottom{display:none}
+    
+    /* スマホ用要素の有効化：ロゴエリア内に横並び */
+    .logo-area{gap:12px}
+    .sp-sns{display:inline-flex;color:var(--brown);transition:color .3s}
+    .sp-sns:hover{color:var(--gold)}
+    .hamburger{display:block;font-size:1.8rem;color:var(--brown);background:none;border:none;cursor:pointer;line-height:1}
+
+    .sp-fixed-btn{display:block;position:fixed;bottom:0;left:0;width:100%;height:60px;background:var(--wine);z-index:150;box-shadow:0 -2px 12px rgba(0,0,0,0.15)}
     .sp-fixed-btn a{display:flex;width:100%;height:100%;justify-content:center;align-items:center;color:var(--cream);text-decoration:none;font-weight:600;font-size:1.1rem;letter-spacing:.1em}
 
-    /* 各セクションのレスポンシブ調整 */
+    /* 各セクションの余白・見栄え維持用スマホ調整 */
     #hero{flex-direction:column;height:auto;min-height:0}
-    .hero-left{padding:4rem 1.5rem;text-align:center;align-items:center}
+    .hero-left{padding:5rem 1.5rem;text-align:center;align-items:center}
     .hero-left::after{display:none}
-    .hero-title{font-size:2rem;margin-bottom:1.5rem}
-    .hero-lead{font-size:0.95rem;margin-bottom:2rem}
-    .hero-right{height:250px;flex:none;width:100%}
-    .hero-bg-logo{width:30%}
+    .hero-title{font-size:2.4rem;margin-bottom:1.8rem}
+    .hero-lead{font-size:1rem;margin-bottom:0}
+    .hero-right{height:300px;flex:none;width:100%}
+    .hero-bg-logo{width:35%}
     .hero-vertical-text{display:none}
 
-    #concept{padding:5rem 1.5rem}
-    .section-title{font-size:1.6rem;margin-bottom:2rem}
-    .concept-text{font-size:0.95rem;line-height:2}
+    #concept{padding:6rem 1.5rem}
+    .section-title{font-size:1.8rem;margin-bottom:2.5rem}
+    .concept-text{font-size:0.95rem;line-height:2.2}
 
-    #wine{padding:5rem 1.5rem}
+    #wine{padding:6rem 1.5rem}
     .wine-grid{grid-template-columns:1fr;gap:20px}
-    .wine-card{padding:2rem 1.5rem}
+    .wine-card{padding:2.5rem 1.5rem}
 
-    #access{padding:5rem 1.5rem}
-    .access-container{flex-direction:column;gap:40px}
-    .info-table th{width:90px;font-size:0.9rem}
-    .info-table td{font-size:0.9rem}
-    .map-area{min-height:300px}
+    #access{padding:6rem 1.5rem}
+    .info-table th{width:100px;font-size:0.95rem;padding:1rem 0}
+    .info-table td{font-size:0.9rem;padding:1rem 0}
+    .map-area{height:320px}
 
-    #reserve{padding:5rem 1.5rem}
+    #reserve{padding:6rem 1.5rem}
     .reserve-text{font-size:0.95rem}
   }
 </style>
@@ -173,23 +177,25 @@
   </div>
 
   <nav class="nav-bottom">
-    <ul class="nav-links">
-      <li><a href="#concept">コンセプト</a></li>
-      <li><a href="#wine">ワイン</a></li>
-      <li><a href="#access">営業案内・アクセス</a></li>
-    </ul>
-    <a href="https://www.instagram.com/izakayabar_reprendre/" target="_blank" rel="noopener noreferrer" class="pc-sns" aria-label="Instagram">
-      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-        <rect x="2" y="2" width="20" height="20" rx="5"/>
-        <circle cx="12" cy="12" r="4"/>
-        <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
-      </svg>
-    </a>
+    <div class="nav-bottom-inner">
+      <ul class="nav-links">
+        <li><a href="#concept">コンセプト</a></li>
+        <li><a href="#wine">ワイン</a></li>
+        <li><a href="#access">営業案内・アクセス</a></li>
+      </ul>
+      <a href="https://www.instagram.com/izakayabar_reprendre/" target="_blank" rel="noopener noreferrer" class="pc-sns" aria-label="Instagram">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <rect x="2" y="2" width="20" height="20" rx="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+        </svg>
+      </a>
+    </div>
   </nav>
 </header>
 
 <div id="mobile-menu" class="menu-overlay">
-  <button class="close-btn" onclick="closeMenu()">&times;</button>
+  <button class="close-btn" onclick="closeMenu()">×</button>
   <ul class="overlay-links">
     <li><a href="#concept" onclick="closeMenu()">コンセプト</a></li>
     <li><a href="#wine" onclick="closeMenu()">ワイン</a></li>
@@ -229,7 +235,7 @@
 </section>
 
 <section id="wine">
-  <div style="text-align:center;margin-bottom:4rem">
+  <div style="text-align:center;margin-bottom:5rem">
     <span class="section-sub">Wine Selection</span>
     <h2 class="section-title" style="margin-bottom:0">厳選ワイン</h2>
   </div>
@@ -310,7 +316,7 @@
 
 <footer>
   <div class="foot-logo">居酒屋バルるぷらんどる</div>
-  <a href="https://www.instagram.com/izakayabar_reprendre/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;color:var(--cream);opacity:0.7;transition:opacity .3s" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'" aria-label="Instagram">
+  <a href="https://www.instagram.com/izakayabar_reprendre/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;color:var(--brown);transition:color .3s" onmouseover="this.style.color='#b8924a'" onmouseout="this.style.color='#4a2e1a'" aria-label="Instagram">
     <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
       <rect x="2" y="2" width="20" height="20" rx="5"/>
       <circle cx="12" cy="12" r="4"/>
