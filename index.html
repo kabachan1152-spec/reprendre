@@ -143,7 +143,7 @@
   .btn-primary:hover{background:var(--wine)}
   .btn-sec{font-family:'Noto Sans JP',sans-serif;font-size:.78rem;letter-spacing:.12em;padding:.8rem 2.2rem;background:transparent;color:var(--brown);border:1px solid var(--brown);cursor:pointer;transition:all .3s}
   .btn-sec:hover{background:var(--cream)}
-  .hero-right{background:#3d2314;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+  .hero-right{background:#3d2314 url('hero-image.jpg') center/cover no-repeat;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
   .hero-pattern{position:absolute;inset:0;opacity:.04;background-image:repeating-linear-gradient(0deg,rgba(184,146,74,1) 0,rgba(184,146,74,1) 1px,transparent 0,transparent 40px),repeating-linear-gradient(90deg,rgba(184,146,74,1) 0,rgba(184,146,74,1) 1px,transparent 0,transparent 40px)}
   .hero-art{position:relative;z-index:1;text-align:center;padding:3rem}
   .hero-art-text{font-family:'Shippori Mincho',serif;font-size:1rem;color:rgba(184,146,74,.95);letter-spacing:.4em;line-height:2.5;writing-mode:vertical-rl;margin:2rem auto 0}
@@ -296,9 +296,10 @@
   <!-- 下段：ホーム / メニュー / アクセス -->
   <nav class="nav-bottom">
     <a href="#">ホーム</a>
-    <a href="menu">メニュー</a>
+    <a href="menu.html">メニュー</a>
+    <a href="gallery.html">ギャラリー</a>
+    <a href="gallery.html">ギャラリー</a>
     <a href="#info">アクセス</a>
-    <a href="gallery">ギャラリー</a>
   </nav>
 </header>
 
@@ -309,9 +310,9 @@
 <div id="mobile-menu">
   <button id="mobile-close" onclick="closeMenu()">✕</button>
   <a href="#" onclick="closeMenu()">ホーム</a>
-  <a href="menu" onclick="closeMenu()">メニュー</a>
+  <a href="menu.html" onclick="closeMenu()">メニュー</a>
+  <a href="gallery.html" onclick="closeMenu()">ギャラリー</a>
   <a href="#info" onclick="closeMenu()">アクセス</a>
-  <a href="gallery" onclick="closeMenu()">ギャラリー</a>
   <a href="https://yoyaku.tabelog.com/yoyaku/smartphone/net_booking_form/index?brid=YWdncwE1Ppngb1ZWQtHtSGCFhQQa&fbclid=PAdGRleAR-SMtleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAacwvmxE4wkYZ12qleLcSTOSl6WMcdabRZyFjBayz-bHpAdRDo8qTBk0SaMlOA_aem_YWdncwD4Rgfc7RhiYuJox8JgKcsh&rcd=27148740&utm_content=link_in_bio&utm_medium=social&utm_source=ig" target="_blank" rel="noopener noreferrer" class="reserve-link" onclick="closeMenu()">
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
     空席確認・ご予約
@@ -347,7 +348,8 @@
     </p>
 
   </div>
-<div class="gallery-item"><img src="DSC_0061.jpg" alt="Gallery 1"></div>
+  <div class="hero-right">
+  </div>
 </section>
 
 <!-- CONCEPT -->
@@ -358,7 +360,7 @@
 </div>
 
 <section id="concept" style="position:relative;min-height:500px;display:flex;align-items:center;overflow:hidden">
-  <div style="position:absolute;inset:0;background-image:url('DSC_0017.jpg');background-size:cover;background-position:center"></div>
+  <div style="position:absolute;inset:0;background-image:url('concept-bg.jpg');background-size:cover;background-position:center"></div>
   <div style="position:absolute;inset:0;background:rgba(20,12,6,0.55)"></div>
   <div style="position:relative;z-index:1;padding:5rem">
     <h2 style="font-family:'Shippori Mincho',serif;font-size:2.2rem;color:#f7f2ea;line-height:1.4;letter-spacing:.08em;margin-bottom:2rem">ワインと料理を<br>手軽に楽しむ。</h2>
